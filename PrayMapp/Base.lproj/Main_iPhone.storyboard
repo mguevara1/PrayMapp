@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LTQ-F7-VTh">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCT-Wu-NO0">
+                                <rect key="frame" x="0.0" y="517" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8Ac-s9-NxR"/>
+                                    <barButtonItem title="Listo" id="49a-oy-PgZ">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Tkj-rC-lYA"/>
+                                </items>
+                            </toolbar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2c5-m8-BTZ">
+                                <rect key="frame" x="0.0" y="65" width="327" height="452"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="452" id="u7T-st-3KD"/>
+                                </constraints>
+                            </mapView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9k6-zg-zaQ">
+                                <rect key="frame" x="0.0" y="515" width="320" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2c5-m8-BTZ" firstAttribute="leading" secondItem="tCT-Wu-NO0" secondAttribute="leading" id="2et-WQ-xqB"/>
+                            <constraint firstItem="2c5-m8-BTZ" firstAttribute="bottom" secondItem="9k6-zg-zaQ" secondAttribute="bottom" id="9ME-KY-elb"/>
+                            <constraint firstAttribute="trailing" secondItem="tCT-Wu-NO0" secondAttribute="trailing" id="9hG-yS-ZE5"/>
+                            <constraint firstAttribute="trailing" secondItem="2c5-m8-BTZ" secondAttribute="trailing" constant="-7" id="IFM-gK-4fx"/>
+                            <constraint firstItem="2c5-m8-BTZ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="1" id="YtG-R3-Hgp"/>
+                            <constraint firstItem="2c5-m8-BTZ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="g1d-Cd-eVM"/>
+                            <constraint firstItem="2c5-m8-BTZ" firstAttribute="bottom" secondItem="tCT-Wu-NO0" secondAttribute="top" id="kYe-qZ-fHc"/>
+                            <constraint firstItem="tCT-Wu-NO0" firstAttribute="trailing" secondItem="9k6-zg-zaQ" secondAttribute="trailing" id="rbN-KT-pab"/>
+                            <constraint firstItem="2c5-m8-BTZ" firstAttribute="leading" secondItem="9k6-zg-zaQ" secondAttribute="leading" id="xVu-kK-Blh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fdi-9J-4xa">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="z9S-SJ-m0f">
+                            <rect key="frame" x="68" y="7" width="185" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Mapa"/>
+                                <segment title="Hibrido"/>
+                                <segment title="Satelite"/>
+                            </segments>
+                            <connections>
+                                <action selector="cambioMapa:" destination="vXZ-lx-hvc" eventType="valueChanged" id="68Q-uO-9gS"/>
+                            </connections>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="9BD-5Z-9sb">
+                            <connections>
+                                <action selector="displayMenu:" destination="vXZ-lx-hvc" id="u9t-gV-brv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="map" destination="2c5-m8-BTZ" id="wKN-uk-rb9"/>
+                        <outlet property="mapTypeSegmentedControl" destination="z9S-SJ-m0f" id="UTg-5M-OZN"/>
+                        <outlet property="menuButton" destination="9BD-5Z-9sb" id="DcX-jH-JYR"/>
+                        <outlet property="progressView" destination="9k6-zg-zaQ" id="T4c-iY-aXP"/>
+                        <outlet property="statusIndicator" destination="49a-oy-PgZ" id="zdI-h1-k7d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1265" y="26"/>
+        </scene>
+        <!--Navigation Controller - Mapa-->
+        <scene sceneID="a2R-J5-xKw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LTQ-F7-VTh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Mapa" id="b1x-t3-FwA"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pDP-sc-Hc9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="rVl-EG-6ff"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qB8-uF-mmx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="814" y="26"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
